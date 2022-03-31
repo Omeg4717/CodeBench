@@ -10,13 +10,41 @@ h1{
 body{
     background-image: url(ciao.JPG);
     min-height: 100vh;
-    background-size: cover;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #6B8A73;
 }
 
-button{
-        text-align: center;   
-        font-size: 25px;  
-        position: absolute;
-        left: 30%;
-        top: 60%;
+.btn-game{
+    background-image: url('bg-btn.png');
+    background-size: 100% 100%;
+    color: white;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding: 20px 60px;
+
 }
+
+.btn-large{
+text-align: center;   
+font-size: 25px;  
+position: absolute;
+left: 30%;
+top: 60%;
+}
+
+h6{
+    text-align: center;   
+    font-size: 25px;  
+    position: absolute;
+    left: %;
+    top: %;
+    }
+/* 
+text-align: center;   
+font-size: 25px;  
+position: absolute;
+left: 30%;
+top: 60%; */
