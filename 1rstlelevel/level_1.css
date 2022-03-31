@@ -1,0 +1,14 @@
+
+body {
+    background-image: url(firstlevelmap.jpg);
+    min-height: 100vh;
+    background-size: cover;
+  }
+
+
+
+body {
+  background-image: url(firstlevelmap.jpg);
+  min-height: 100vh;
+  background-size: cover;
+}
