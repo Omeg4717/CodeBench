@@ -8,16 +8,24 @@ h1{
 }
 
 body{
-    background-image: url(ciao.JPG);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 10%, rgba(107,138,115,255) 50%, rgba(107,138,115,255) 100%);
     min-height: 100vh;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: #6B8A73;
+}
+
+.map-bg{
+    min-height: 100vh;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    background-image: url(map.JPG);
 }
 
 .btn-game{
-    background-image: url('bg-btn.png');
+    background-image: url('bg-btn-removebg-preview.png');
     background-size: 100% 100%;
     color: white;
     font-weight: bold;
@@ -35,14 +43,6 @@ left: 30%;
 top: 60%;
 }
 
-h6{
-    text-align: center;   
-    font-size: 25px;  
-    position: absolute;
-    left: %;
-    top: %;
-    }
-/* 
 text-align: center;   
 font-size: 25px;  
 position: absolute;
