@@ -1,0 +1,57 @@
+.game{
+    width: 700px;
+    height: 500px;
+    background-color: aqua;
+    /* THis is mandatory, it tells to the game that everyting inside
+    is related to this element */
+    position: relative;
+}
+.character{
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    bottom: 0%;
+    left: 10%;
+    /* This is mandatory
+    it tells that the element is absolute inside of the game */
+    position: absolute;
+}
+
+.jump{
+    animation: jumpAnim 1000ms;
+}
+
+
+@keyframes jumpAnim {
+    0%,100%{
+        bottom: 0%;
+    }
+    40%{
+        bottom: 30%;
+    }
+}
+
+
+
+.enemy{
+    background-color: red;
+    width: 30px;
+    height: 140px;
+    bottom: 0%;
+    left: 100%;
+    /* This is mandatory
+    it tells that the element is absolute inside of the game */
+    position: absolute;
+}
+
+.moving{
+    animation: movingAnim 4000ms linear;
+}
+@keyframes movingAnim {
+    0%{
+        left: 100%;
+    }
+    100%{
+        left: 0%;
+    }
+}
