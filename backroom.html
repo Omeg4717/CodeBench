@@ -18,6 +18,7 @@
         const enemyEl = document.querySelector('.enemy')
 
         let jumping = false
+        let dobbleJumping = false
         window.onkeydown = (e) => {
             if (jumping === false && e.key === " "){
                 characterEl.classList.add('jump')
@@ -26,9 +27,16 @@
                     characterEl.classList.remove('jump')
                     jumping= false
                 },1000)
+            }else if (jumping === true && e.key === " " && dobbleJumping == false){
+                characterEl.classList.add('dobbleJump')
+                // characterEl.classList.remove('jump')
+                dobbleJumping = true
+                setTimeout(() => {
+                    characterEl.classList.remove('dobbleJump')
+                    dobbleJumping= false
+                },500)
             }
         }
-
 
         let moving = false
         let died = false
@@ -142,8 +150,9 @@
 
 
 
-    <h5 id="demo" style="display:none">This is an hidden script</h5>
-    <button type="button" onclick="document.getElementById('demo').style.display='block'">Start</button>
+    <h5 id="ciao" style="display:none">This is an hidden script</h5>
+    <h5 id="demo" style="display:none">this is impossible</h5>
+    <button type="button" onclick="document.getElementById('ciao').style.display='block'">Start</button>
 
 </body>
 </html>

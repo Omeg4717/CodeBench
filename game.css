@@ -12,6 +12,7 @@
     height: 30px;
     bottom: 0%;
     left: 10%;
+    transition: all .5s;
     /* This is mandatory
     it tells that the element is absolute inside of the game */
     position: absolute;
@@ -31,12 +32,27 @@
     }
 }
 
+.dobbleJump{
+    transform: translateY(-200px)
+}
+
+
+@keyframes dobbleJumpAnim {
+    40%{
+        transform: translateY(-200px);
+    }
+    100%{
+        transform: translateY(0px);
+        bottom: 0%;
+    }
+}
+
 
 
 .enemy{
     background-color: red;
     width: 30px;
-    height: 100px;
+    height: 150px;
     bottom: 0%;
     left: 100%;
     /* This is mandatory
