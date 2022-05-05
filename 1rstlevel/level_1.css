@@ -29,7 +29,7 @@ body {
 }
 
 .jump{
-    animation: jumpAnim 1000ms;
+    animation: jumpAnim 1500ms;
 }
 
 
@@ -38,7 +38,7 @@ body {
         bottom: 0%;
     }
     40%{
-        bottom: 30%;
+        bottom: 65%;
     }
 }
 
@@ -46,10 +46,12 @@ body {
 
 .enemy{
     background-color: red;
-    width: 30px;
+    background-image: url(ezgif.com-rotate.gif) ;
+    width: 100px;
     height: 100px;
     bottom: 0%;
     left: 100%;
+    background-size: cover;
     /* This is mandatory
     it tells that the element is absolute inside of the game */
     position: absolute;

@@ -8,7 +8,63 @@
   <link rel="stylesheet" href="level_2.css">
 </head>
 <body>
-  
+  <div class="game">
+    <div class="character"></div>
+    <div class="enemy"></div>
+</div>
+<script>
+    const characterEl = document.querySelector('.character')
+    const enemyEl = document.querySelector('.enemy')
+
+    let jumping = false
+    window.onkeydown = (e) => {
+        if (jumping === false && e.key === " "){
+            characterEl.classList.add('jump')
+            jumping = true
+            setTimeout(() => {
+                characterEl.classList.remove('jump')
+                jumping= false
+            },1000)
+        }
+    }
+
+
+    let moving = false
+    let died = false
+    setInterval(() => {
+        const rnd = Math.random()
+        if (moving === false && rnd < 0.04){
+            console.log("moving!!!")
+            enemyEl.classList.add('moving')
+            moving = true;
+            setTimeout(() => {
+                enemyEl.classList.remove('moving')
+                moving = false;
+            },4000)
+        }
+
+        if (died === false && collide(enemyEl, characterEl)){
+            alert("die")
+            // ricaricare la pagina
+            location.reload()
+            // cambiare pagina
+            // location.href = "youdie.html"
+        }
+    },50)
+
+    const collide =  (el1, el2) => {
+        var rect1 = el1.getBoundingClientRect();
+        var rect2 = el2.getBoundingClientRect();
+
+        return !(
+        rect1.top > rect2.bottom ||
+        rect1.right < rect2.left ||
+        rect1.bottom < rect2.top ||
+        rect1.left > rect2.right
+        );
+    }
+</script>
+
 
   
 
