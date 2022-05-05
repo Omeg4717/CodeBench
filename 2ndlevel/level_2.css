@@ -4,3 +4,69 @@ body {
     min-height: 100vh;
     background-size: cover;
   }
+  .game{
+    width: 700px;
+    height: 500px;
+    background-color: transparent;
+    border-width: 10px;
+    background-size: cover;
+
+    /* THis is mandatory, it tells to the game that everyting inside
+    is related to this element */
+    position: relative;
+}
+.character{
+    background-color: rgb(66, 31, 122);
+    width: 30px;
+    height: 30px;
+    bottom: 0%;
+    left: 10%;
+    /* This is mandatory
+    it tells that the element is absolute inside of the game */
+    position: absolute;
+}
+
+.jump{
+    animation: jumpAnim 1000ms;
+}
+
+
+@keyframes jumpAnim {
+    0%,100%{
+        bottom: 0%;
+    }
+    40%{
+        bottom: 30%;
+    }
+}
+
+
+
+.enemy{
+    background-image: red;
+    width: 30px;
+    height: 100px;
+    bottom: 0%;
+    left: 100%;
+    /* This is mandatory
+    it tells that the element is absolute inside of the game */
+    position: absolute;
+}
+
+.moving{
+    animation: movingAnim 4000ms linear;
+}
+@keyframes movingAnim {
+    0%{
+        left: 100%;
+    }
+    100%{
+        left: 0%;
+    }
+}
+
+h3{
+  color: aqua;
+  font: large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
