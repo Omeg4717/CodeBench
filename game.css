@@ -52,8 +52,20 @@
 .enemy{
     background-color: red;
     width: 30px;
-    height: 150px;
+    height: 100px;
     bottom: 0%;
+    left: 100%;
+    /* This is mandatory
+    it tells that the element is absolute inside of the game */
+    position: absolute;
+}
+
+
+.highEnemy{
+    background-color: blue;
+    width: 30px;
+    height: 100px;
+    bottom: 30%;
     left: 100%;
     /* This is mandatory
     it tells that the element is absolute inside of the game */

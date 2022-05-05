@@ -12,34 +12,44 @@
     <div class="game">
         <div class="character"></div>
         <div class="enemy"></div>
+        <div class="highEnemy"></div>
     </div>
     <script>
         const characterEl = document.querySelector('.character')
         const enemyEl = document.querySelector('.enemy')
+        const highEnemyEl = document.querySelector('.highEnemy')
+
 
         let jumping = false
         let dobbleJumping = false
+        let falling = false
         window.onkeydown = (e) => {
-            if (jumping === false && e.key === " "){
+            if (jumping === false && e.key === " " && died === false){
                 characterEl.classList.add('jump')
                 jumping = true
                 setTimeout(() => {
                     characterEl.classList.remove('jump')
                     jumping= false
                 },1000)
-            }else if (jumping === true && e.key === " " && dobbleJumping == false){
+            }else if (jumping === true && e.key === " " && dobbleJumping == false  && falling === false && died === false){
                 characterEl.classList.add('dobbleJump')
-                // characterEl.classList.remove('jump')
                 dobbleJumping = true
                 setTimeout(() => {
                     characterEl.classList.remove('dobbleJump')
+                    characterEl.classList.add('fall')
                     dobbleJumping= false
-                },500)
+                    falling = true
+                },400)
+                setTimeout(() => {
+                    characterEl.classList.remove('fall')
+                    falling = false
+                },1000)
             }
         }
 
-        let moving = false
         let died = false
+        let moving = false
+        let moving2 = false
         setInterval(() => {
             const rnd = Math.random()
             if (moving === false && rnd < 0.04){
@@ -52,7 +62,20 @@
                 },4000)
             }
 
-            if (died === false && collide(enemyEl, characterEl)){
+            const rnd2 = Math.random()
+            if (moving2 === false && rnd2 < 0.04){
+                console.log("moving!!!")
+                highEnemyEl.classList.add('moving')
+                moving2 = true;
+                setTimeout(() => {
+                    highEnemyEl.classList.remove('moving')
+                    moving2 = false;
+                },4000)
+            }
+            
+            
+
+            if (died === false && collide(enemyEl, characterEl) || died === false && collide(highEnemyEl, characterEl)){
                 alert("die")
                 // ricaricare la pagina
                 location.reload()
