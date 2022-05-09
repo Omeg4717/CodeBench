@@ -11,14 +11,20 @@
 <body>
     <div class="game">
         <div class="character"></div>
-        <div class="enemy"></div>
+        <div class="enem"></div>
         <div class="highEnemy"></div>
+        <a id="demo" style="display:none" href="1rstlevel/1rstlevel.html" class="btn-game btn-large">first piece of the key gained!</a>
     </div>
     <script>
         const characterEl = document.querySelector('.character')
         const enemyEl = document.querySelector('.enemy')
         const highEnemyEl = document.querySelector('.highEnemy')
 
+        let win = false
+        setTimeout(() => {
+            win = true
+            characterEl.classList.add('win!')
+        },60000)
 
         let jumping = false
         let dobbleJumping = false
@@ -167,11 +173,7 @@
             startGame()
         </script> -->
 
-    </body>
-
-
-
-
+    <!-- </body> -->
 
     <h5 id="ciao" style="display:none">This is an hidden script</h5>
     <h5 id="demo" style="display:none">this is impossible</h5>
