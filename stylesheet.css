@@ -88,3 +88,18 @@ body{
     left: 68%;
     top: 80%;
 }
+
+.btn-gamested{
+    background-image: url('bg-btn-removebg-preview.png');
+    background-size: 100%;
+    color: white;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding: 10px 30px;
+    text-align: center;   
+    font-size: 15px;  
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
