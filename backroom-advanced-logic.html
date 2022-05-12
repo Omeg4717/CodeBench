@@ -26,65 +26,81 @@
             characterEl.classList.add('win!')
         },60000)
 
-        let jumping = false
-        let dobbleJumping = false
-        let falling = false
+        let jumpCount = 0 
+        let timeout = null
         window.onkeydown = (e) => {
-            if (jumping === false && e.key === " " && died === false){
-                characterEl.classList.add('jump')
-                jumping = true
-                setTimeout(() => {
-                    characterEl.classList.remove('jump')
-                    jumping= false
-                },1000)
-            }else if (jumping === true && e.key === " " && dobbleJumping == false  && falling === false && died === false){
-                characterEl.classList.add('dobbleJump')
-                dobbleJumping = true
-                setTimeout(() => {
-                    characterEl.classList.remove('dobbleJump')
-                },1000)
-                setTimeout(() => {
-                    dobbleJumping= false
-                },3000)
+            // we wiil check if playr press sbacebar
+                // if so, we start to jump
+            console.log(jumpCount)
+            if (e.code === "Space" && jumpCount < 2 ){
+                jumpForce = 1
+                if (jumpCount > 0){
+                    // in caso di doppio salto
+                    jumpForce = 1.5
+                    clearTimeout(timeout)
+                    console.log("Double jump")
+                    characterEl.classList.add('dobbleJump')
+                }
+                jumpCount++
+                timeout = setTimeout(() => {
+                    jumpForce = -1
+                },500)
             }
         }
+        let characterBottom = 0;
+        let jumpForce = 0
+        const characterSpeed = 1
+        // moving the characther
+        setInterval(() => {
+            characterBottom = characterBottom + (jumpForce * characterSpeed)
+            if (characterBottom <= 0) {
+                characterBottom = 0;
+                jumpForce = 0
+                jumpCount = 0
+                console.log("jump count resetted")
+                characterEl.classList.remove('dobbleJump')
+            }
+            characterEl.style.bottom = characterBottom + "%" 
+        }, 1000/60)
 
+
+        // moving the enemies
         let died = false
         let moving = false
         let moving2 = false
-        setInterval(() => {
-            const rnd = Math.random()
-            if (moving === false && rnd < 0.04){
-                console.log("moving!!!")
-                enemyEl.classList.add('moving')
-                moving = true;
-                setTimeout(() => {
-                    enemyEl.classList.remove('moving')
-                    moving = false;
-                },4000)
-            }
+        // setInterval(() => {
+        //     const rnd = Math.random()
+        //     if (moving === false && rnd < 0.04){
+        //         console.log("moving!!!")
+        //         enemyEl.classList.add('moving')
+        //         moving = true;
+        //         setTimeout(() => {
+        //             enemyEl.classList.remove('moving')
+        //             moving = false;
+        //         },4000)
+        //     }
 
-            const rnd2 = Math.random()
-            if (moving2 === false && rnd2 < 0.04){
-                console.log("moving!!!")
-                highEnemyEl.classList.add('moving')
-                moving2 = true;
-                setTimeout(() => {
-                    highEnemyEl.classList.remove('moving')
-                    moving2 = false;
-                },4000)
-            }
+        //     const rnd2 = Math.random()
+        //     if (moving2 === false && rnd2 < 0.04){
+        //         console.log("moving!!!")
+        //         highEnemyEl.classList.add('moving')
+        //         moving2 = true;
+        //         setTimeout(() => {
+        //             highEnemyEl.classList.remove('moving')
+        //             moving2 = false;
+        //         },4000)
+        //     }
             
             
 
-            if (died === false && collide(enemyEl, characterEl) || died === false && collide(highEnemyEl, characterEl)){
-                //alert("die")
-                // ricaricare la pagina
-                location.reload()
-                // cambiare pagina
-                // location.href = "youdie.html"
-            }
-        },50)
+        //     if (died === false && collide(enemyEl, characterEl) || died === false && collide(highEnemyEl, characterEl)){
+        //         //alert("die")
+        //         // ricaricare la pagina
+        //         location.reload()
+        //         // cambiare pagina
+        //         // location.href = "youdie.html"
+        //     }
+        // },50)
 
         const collide =  (el1, el2) => {
             var rect1 = el1.getBoundingClientRect();
