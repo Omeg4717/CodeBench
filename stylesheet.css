@@ -25,7 +25,7 @@ body{
     background-position: center center;
     background-repeat: no-repeat;
 
-    background-image: url(IMG_9175.jpg);
+    background-image: url(map.jpg);
 }
 
 .btn-game{
@@ -102,4 +102,16 @@ body{
     position: absolute;
     left: 10%;
     top: 10%;
+}
+
+.btn-gamesteds{
+    background-size: 100%;
+    color: transparent;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    display: inline-block;
+    padding: 10px 30px; 
+    position: absolute;
+    left: 30%;
+    top: 25%;
 }
