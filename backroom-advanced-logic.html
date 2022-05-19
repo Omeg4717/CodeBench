@@ -13,7 +13,6 @@
         <div class="character"></div>
         <div class="enemy"></div>
         <div class="highEnemy"></div>
-        <a id="demo" style="display:none" href="1rstlevel/1rstlevel.html" class="btn-game btn-large">first piece of the key gained!</a>
     </div>
     <script>
         const characterEl = document.querySelector('.character')
@@ -23,6 +22,7 @@
         let win = false
         setTimeout(() => {
             win = true
+            location.href = 'index.html'
             characterEl.classList.add('win!')
         },60000)
 
@@ -68,39 +68,39 @@
         let died = false
         let moving = false
         let moving2 = false
-        // setInterval(() => {
-        //     const rnd = Math.random()
-        //     if (moving === false && rnd < 0.04){
-        //         console.log("moving!!!")
-        //         enemyEl.classList.add('moving')
-        //         moving = true;
-        //         setTimeout(() => {
-        //             enemyEl.classList.remove('moving')
-        //             moving = false;
-        //         },4000)
-        //     }
+        setInterval(() => {
+            const rnd = Math.random()
+            if (moving === false && rnd < 0.04){
+                console.log("moving!!!")
+                enemyEl.classList.add('moving')
+                moving = true;
+                setTimeout(() => {
+                    enemyEl.classList.remove('moving')
+                    moving = false;
+                },4000)
+            }
 
-        //     const rnd2 = Math.random()
-        //     if (moving2 === false && rnd2 < 0.04){
-        //         console.log("moving!!!")
-        //         highEnemyEl.classList.add('moving')
-        //         moving2 = true;
-        //         setTimeout(() => {
-        //             highEnemyEl.classList.remove('moving')
-        //             moving2 = false;
-        //         },4000)
-        //     }
+            const rnd2 = Math.random()
+            if (moving2 === false && rnd2 < 0.04){
+                console.log("moving!!!")
+                highEnemyEl.classList.add('moving')
+                moving2 = true;
+                setTimeout(() => {
+                    highEnemyEl.classList.remove('moving')
+                    moving2 = false;
+                },4000)
+            }
             
             
 
-        //     if (died === false && collide(enemyEl, characterEl) || died === false && collide(highEnemyEl, characterEl)){
-        //         //alert("die")
-        //         // ricaricare la pagina
-        //         location.reload()
-        //         // cambiare pagina
-        //         // location.href = "youdie.html"
-        //     }
-        // },50)
+            if (died === false && collide(enemyEl, characterEl) || died === false && collide(highEnemyEl, characterEl)){
+                //alert("die")
+                // ricaricare la pagina
+                location.reload()
+                // cambiare pagina
+                // location.href = "youdie.html"
+            }
+        },50)
 
         const collide =  (el1, el2) => {
             var rect1 = el1.getBoundingClientRect();
