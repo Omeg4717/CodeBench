@@ -10,14 +10,10 @@ body {
     width: 700px;
     height: 500px;
     background-color: transparent;
-    border-width: 10px;
-    background-size: cover;
-
-    /* THis is mandatory, it tells to the game that everyting inside
-    is related to this element */
+    border-color: black;
+    
     position: relative;
 }
-
 .character{
     background-color: transparent;
     background-image: url(IMG_9185.GIF);
@@ -27,14 +23,12 @@ body {
     height: 60px;
     bottom: 0%;
     left: 10%;
-    /* transition: all linear 1000ms; */
-    /* This is mandatory
-    it tells that the element is absolute inside of the game */
+   
     position: absolute;
 }
 
 .jump{
-    animation: jumpAnim 1500ms;
+    animation: jumpAnim 1000ms;
 }
 
 
@@ -43,23 +37,35 @@ body {
         bottom: 0%;
     }
     40%{
-        bottom: 65%;
+        bottom: 30%;
+    }
+}
+
+.dobbleJump{
+    animation: doubleJumpAnimation .8s  linear forwards;
+}
+
+
+
+@keyframes doubleJumpAnimation {
+    100%{
+        transform: rotate(360deg);
     }
 }
 
 
 
 .enemy{
-    background-image: url(ezgif.com-rotate.gif) ;
-    width: 100px;
+    background-color: red;
+    width: 30px;
     height: 100px;
     bottom: 0%;
     left: 100%;
-    background-size: cover;
     /* This is mandatory
     it tells that the element is absolute inside of the game */
     position: absolute;
 }
+
 
 .moving{
     animation: movingAnim 4000ms linear;
@@ -73,8 +79,13 @@ body {
     }
 }
 
-h3{
-  color: aqua;
-  font: large;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+.win{
+    animation: winAnim 10000ms linear;
+}
+
+@keyframes winAnim{
+    0%{
+        
+    }
 }

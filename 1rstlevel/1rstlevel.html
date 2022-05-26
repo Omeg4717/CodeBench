@@ -8,28 +8,31 @@
   <link rel="stylesheet" href="level_1.css">
 </head>
 <body>
-  <div class="game">
-    <div class="character"></div>
-    <div class="enemy"></div>
-    <div class="highEnemy"></div>
-</div>
-<script>
-  const characterEl = document.querySelector('.character')
+    <div class="game">
+        <div class="character"></div>
+        <div class="enemy"></div>
+        <div class="highEnemy"></div>
+    </div>
+    <script>
+        const characterEl = document.querySelector('.character')
         const enemyEl = document.querySelector('.enemy')
         const highEnemyEl = document.querySelector('.highEnemy')
 
+        let win = false
         setTimeout(() => {
-            location.href = '../indexlevel2.html'
+            win = true
+            location.href = 'index.html'
+            characterEl.classList.add('win!')
         },60000)
 
- let jumpCount = 0 
+        let jumpCount = 0 
         let timeout = null
         window.onkeydown = (e) => {
             // we wiil check if playr press sbacebar
                 // if so, we start to jump
             console.log(jumpCount)
-            if (e.code === "Space" && jumpCount < 2 ){
-                jumpForce = 1
+            if (e.code === "Space" && jumpCount < 1 ){
+                jumpForce = 1.5
                 if (jumpCount > 0){
                     // in caso di doppio salto
                     jumpForce = 1.5
@@ -90,7 +93,7 @@
             
 
             if (died === false && collide(enemyEl, characterEl) || died === false && collide(highEnemyEl, characterEl)){
-                alert("die")
+                //alert("die")
                 // ricaricare la pagina
                 location.reload()
                 // cambiare pagina
@@ -110,7 +113,16 @@
             );
         }
     </script>
-</script>
+    <h1>BLock Hopper</h1>
+
+
+
+    <h5 id="ciao" style="display:none">This is an hidden script</h5>
+    <h5 id="demo" style="display:none">this is impossible</h5>
+    <button type="button" onclick="document.getElementById('ciao').style.display='block'">Start</button>
+
+</body>
+</html>
 
 
   

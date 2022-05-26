@@ -4,3 +4,87 @@ body {
     min-height: 100vh;
     background-size: cover;
   }
+  .game{
+    width: 700px;
+    height: 500px;
+    background-color: transparent;
+    border-color: black;
+    
+    position: relative;
+}
+.character{
+    background-color: transparent;
+    background-image: url(IMG_9185.GIF);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    bottom: 0%;
+    left: 10%;
+   
+    position: absolute;
+}
+
+.jump{
+    animation: jumpAnim 1000ms;
+}
+
+
+@keyframes jumpAnim {
+    0%,100%{
+        bottom: 0%;
+    }
+    40%{
+        bottom: 30%;
+    }
+}
+
+.dobbleJump{
+    animation: doubleJumpAnimation .8s  linear forwards;
+}
+
+
+
+@keyframes doubleJumpAnimation {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.enemy{
+    background-color: red;
+    width: 30px;
+    height: 100px;
+    bottom: 0%;
+    left: 100%;
+    /* This is mandatory
+    it tells that the element is absolute inside of the game */
+    position: absolute;
+}
+
+
+.moving{
+    animation: movingAnim 1500ms linear;
+}
+@keyframes movingAnim {
+    0%{
+        left: 100%;
+    }
+    100%{
+        left: 0%;
+    }
+}
+
+
+.win{
+    animation: winAnim 10000ms linear;
+}
+
+@keyframes winAnim{
+    0%{
+        
+    }
+}
+  
